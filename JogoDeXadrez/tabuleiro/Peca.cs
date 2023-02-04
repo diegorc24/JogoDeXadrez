@@ -20,5 +20,10 @@ namespace JogoDeXadrez.tabuleiro
             QteMovimentos = 0;
             Tabuleiro = tabuleiro;
         }
+
+        public void incremnetarQteMovimentos()
+        {
+            QteMovimentos++;
+        }
     }
 }

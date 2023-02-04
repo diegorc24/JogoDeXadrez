@@ -45,6 +45,19 @@ namespace JogoDeXadrez.tabuleiro
             peca.Posicao = posicao;
         }
 
+        public Peca retirarPeca(Posicao posicao)
+        {
+            if (peca(posicao) == null)
+            {
+                return null;
+            }
+
+            Peca aux = peca(posicao);   
+            aux.Posicao = null;
+            pecas[posicao.Linha, posicao.Coluna] = null;
+            return aux;
+        }
+
         public bool posicaoValida(Posicao posicao) 
         {
             if (posicao.Linha < 0 || posicao.Linha >= Linhas || posicao.Coluna < 0 || posicao.Coluna >= Colunas)
