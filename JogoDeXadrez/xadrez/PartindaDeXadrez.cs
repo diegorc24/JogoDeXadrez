@@ -9,15 +9,17 @@ namespace JogoDeXadrez.xadrez
 {
     public class PartindaDeXadrez
     {
-        private Tabuleiro tabuleiro;
-        private int turno;
+        public Tabuleiro tabuleiro { get; private set; }
+        private int Turno;
         private Cor JogadorAtual;
+        public bool Terminada { get; private set; }
 
         public PartindaDeXadrez()
         {
             tabuleiro = new Tabuleiro(8,8);
-            turno = 1;
+            Turno = 1;
             JogadorAtual = Cor.Branca;
+            Terminada= false;
             colocarPecas();
         }
       

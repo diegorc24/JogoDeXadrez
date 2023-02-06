@@ -13,15 +13,21 @@ namespace JogoDeXadrez
             //Console.WriteLine(posicaoXadrez.ToPosicao());
             try
             {
-                Tabuleiro tabuleiro = new Tabuleiro(8, 8);
+                PartindaDeXadrez partindaDeXadrez = new PartindaDeXadrez();
 
-                tabuleiro.colacarPeca(new Torre(Cor.Preta, tabuleiro), new Posicao(0, 0));
-                tabuleiro.colacarPeca(new Torre(Cor.Preta, tabuleiro), new Posicao(1, 3));
-                tabuleiro.colacarPeca(new Rei(Cor.Preta, tabuleiro), new Posicao(0, 2));
+                while (!partindaDeXadrez.Terminada)
+                {
+                    Console.Clear();
+                    Tela.imprimirTabuleiro(partindaDeXadrez.tabuleiro);
 
-                tabuleiro.colacarPeca(new Torre(Cor.Branca, tabuleiro), new Posicao(3, 5));
+                    Console.WriteLine();
+                    Console.WriteLine("Origem: ");
+                    Posicao origem = Tela.lerPosicaoXadrez().ToPosicao();
+                    Console.WriteLine("Destino: ");
+                    Posicao destino = Tela.lerPosicaoXadrez().ToPosicao();
 
-                Tela.imprimirTabuleiro(tabuleiro);
+                    partindaDeXadrez.executaMovimento(origem, destino);
+                }
             }
             catch (TabuleiroException ex)
             {
